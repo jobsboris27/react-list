@@ -14,5 +14,15 @@ code {
 }
 
 .list-container {
-  flex: 0 0 400px
+  flex: 0 0 50%
+}
+
+.list-horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.list-horizontal li {
+  margin-left: 10px;
 }

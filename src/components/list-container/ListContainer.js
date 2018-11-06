@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import List from "../list/List";
 
 class ListContainer extends Component {
   constructor() {
@@ -38,15 +37,17 @@ class ListContainer extends Component {
     const { list, status, loading } = this.state;
     const { title } = this.props;
     const loader = loading && (<div>{status}</div>);
-
+    const childrenWithProps = React.Children.map(this.props.children, child => {
+      return React.cloneElement(child, {
+        list,
+        title,
+        onRemoveHandler: this.onRemoveItem.bind(this)
+      });
+    });
     return (
       <div className="list-container">
         {loader}
-        <List 
-          list={list}
-          title={title}
-          onRemoveHandler={this.onRemoveItem.bind(this)}
-          />
+        {childrenWithProps}
       </div>
     );
   }

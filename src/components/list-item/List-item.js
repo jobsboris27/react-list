@@ -5,7 +5,7 @@ const ListItem = ({item, onRemoveHandler}) => {
   return (
   <li className="list">
     {title}
-    <button onClick={onRemoveHandler.bind(this, item)}>X</button>
+    <button onClick={onRemoveHandler.bind(null, item)}>X</button>
   </li>
   )
 }
